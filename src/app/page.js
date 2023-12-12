@@ -1,10 +1,12 @@
-
-import styles from './page.module.css'
-
+import 'bootstrap/dist/css/bootstrap.css';
+import Wave from './../components/Wave/Wave';
+import './globals.css';
 export default function Home() {
   return (
-    <main className={styles.main}>
-    
+    <main>
+      <div>
+        <Wave />
+      </div>
     </main>
   )
 }
