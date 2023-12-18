@@ -34,7 +34,7 @@ export default function AddNewMessage() {
       Message: message
     }
     try {
-      axios.post("http://localhost:3000/Api/ApiNewMessage", JSON.stringify(userData))
+      axios.post(`${process.env.server_URL}/Api/ApiNewMessage`, JSON.stringify(userData))
         .then((response) => {
 
           SetflipDivText(`${css(styles.flip)}`)
@@ -45,7 +45,7 @@ export default function AddNewMessage() {
           },1600)
           redirect('/')
 
-        });
+        }); 
     } catch (error) {
       alert(error);
     }

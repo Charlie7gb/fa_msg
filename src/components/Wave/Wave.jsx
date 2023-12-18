@@ -31,7 +31,7 @@ export default function Wave() {
 
     const fetchMessage = async () => {
         try {
-            const result = await axios.get('http://localhost:3000/Api/ApiNewMessage');
+            const result = await axios.get(`${process.env.server_URL}/Api/ApiNewMessage`);
             setMessageRender(result.data.msgO.Message);
         } catch (error) {
             //alert("error");
