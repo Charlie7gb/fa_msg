@@ -92,14 +92,21 @@ export default function Wave() {
                         </div>
                     </div>
                     <div class="col-12 d-flex justify-content-center align-items-center">
-                        <button className="btn" onClick={() => handleClick()}>
-                            Render Message ...
-                        </button>
+                        <div className='row w-100 text-center d-flex justify-content-center align-items-center'>
+                            <div className='col-md-4'>
+                                <button className="btn" onClick={() => handleClick()}>
+                                    R-Message
+                                </button>
+                            </div>
+                            <div className='col-md-4'>
+                                <Link href='/NewMessage' className='btn'>Create Message</Link>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
             </div>
-            <Link href='/NewMessage'>Create Message</Link>
+
         </div>
     )
 }
