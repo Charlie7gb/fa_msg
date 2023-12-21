@@ -69,8 +69,8 @@ export default function Wave() {
                 <RenderWave />
             </div>
             <div className='container d-flex justify-content-center p-5'>
-                <div class="row justify-content-center align-items-center g-2">
-                    <div class="col-12">
+                <div className="row justify-content-center align-items-center g-2">
+                    <div className="col-12">
                         <div className={`${animatinFadeinDown} test d-flex justify-content-center align-items-center`}>
                             <div className={`${DivImage}`}>
                                 <Image src={Img} width={400} height={400} />
@@ -91,7 +91,7 @@ export default function Wave() {
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 d-flex justify-content-center align-items-center">
+                    <div className="col-12 d-flex justify-content-center align-items-center">
                         <div className='row w-100 text-center d-flex justify-content-center align-items-center'>
                             <div className='col-md-4'>
                                 <button className="btn" onClick={() => handleClick()}>
