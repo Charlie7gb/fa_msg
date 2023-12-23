@@ -2,10 +2,11 @@ import connectMongo from '../../../DB/connectDatabase'
 import { NextResponse } from 'next/server'
 import Message from '../../../model/Message';
 
-  connectMongo().catch(() => res.status(405).json({ error: "Error in the Connection" }));
+  
 
 export async function POST(request, res) {
   try {
+    connectMongo().catch(() => res.status(405).json({ error: "Error in the Connection" }));
     const requestData = await request.json()
     //console.log(request.json())
     const numID = await Message.countDocuments() + 1;
@@ -22,12 +23,12 @@ export async function POST(request, res) {
 
 export async function GET() {
   try {
-    try {
-      const generatedID = Math.floor(Math.random()*(6 - 1)) + 1;
+    try { 
+     /* const generatedID = Math.floor(Math.random()*(6 - 1)) + 1;
       var query = { NumID: generatedID };
       const ListMessage = await Message.findOne(query);
-      //console.log(ListMessage)
-      return NextResponse.json({ msgO :ListMessage }, { status: 200 })
+      //console.log(ListMessage)*/
+      return NextResponse.json({ msgO :"----" }, { status: 200 })
     } catch (error) {
       return NextResponse.json({ error: "Failed to select document : " + db }, { status: 500 })
     }
