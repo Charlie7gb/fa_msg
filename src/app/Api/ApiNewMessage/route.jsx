@@ -30,7 +30,7 @@ export async function GET() {
       //console.log(ListMessage)*/
       const client = await connectMongo;
      
-
+ 
       return NextResponse.json({ msgO :"----" }, { status: 200 })
     } catch (error) {
       return NextResponse.json({ error: "Error in the Connection"}, { status: 500 })
