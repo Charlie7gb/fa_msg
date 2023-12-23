@@ -28,12 +28,15 @@ export async function GET() {
       var query = { NumID: generatedID };
       const ListMessage = await Message.findOne(query);
       //console.log(ListMessage)*/
-      const client = await connectMongo;
-     
- 
-      return NextResponse.json({ msgO :"----" }, { status: 200 })
+      const client = await connectMongo();
+      const generatedID = Math.floor(Math.random()*(6 - 1)) + 1;
+      var query = { NumID: generatedID };
+      const ListMessage = await Message.findOne(query);
+      //console.log(ListMessage)
+  
+      return NextResponse.json({ msgO :ListMessage }, { status: 200 })
     } catch (error) {
-      return NextResponse.json({ error: "Error in the Connection"}, { status: 500 })
+      return NextResponse.json({ error: "Error in the Connection **"}, { status: 500 })
     }
   }
   catch (error) {
