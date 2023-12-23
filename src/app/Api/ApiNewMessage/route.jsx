@@ -29,12 +29,11 @@ export async function GET() {
       const ListMessage = await Message.findOne(query);
       //console.log(ListMessage)*/
       const client = await connectMongo();
-      const generatedID = Math.floor(Math.random()*(6 - 1)) + 1;
-      var query = { NumID: generatedID };
-      const ListMessage = await Message.findOne(query);
+      const db = client.db("FAMessage");
+      
       //console.log(ListMessage)
   
-      return NextResponse.json({ msgO :ListMessage }, { status: 200 })
+      return NextResponse.json({ msgO :db }, { status: 200 })
     } catch (error) {
       return NextResponse.json({ error: "Error in the Connection **"}, { status: 500 })
     }
