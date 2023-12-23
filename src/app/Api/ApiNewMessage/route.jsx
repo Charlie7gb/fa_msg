@@ -20,7 +20,7 @@ export async function POST(request, res) {
 }
 
 
-
+ 
 export async function GET() {
   try {
     try {  
@@ -29,7 +29,7 @@ export async function GET() {
       const ListMessage = await Message.findOne(query);
       //console.log(ListMessage)*/
       const client = await connectMongo;
-      const db = client.db("FAMessage");
+     
 
       return NextResponse.json({ msgO :"----" }, { status: 200 })
     } catch (error) {
