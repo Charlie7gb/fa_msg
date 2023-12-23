@@ -33,7 +33,7 @@ export async function GET() {
       
       //console.log(ListMessage)
   
-      return NextResponse.json({ msgO :client }, { status: 200 })
+      return NextResponse.json({ msgO :"---" }, { status: 200 })
     } catch (error) {
       return NextResponse.json({ error: "Error in the Connection **"}, { status: 500 })
     }
