@@ -28,8 +28,8 @@ export async function GET() {
       var query = { NumID: generatedID };
       const ListMessage = await Message.findOne(query);
       //console.log(ListMessage)*/
-
-      connectMongo().catch(() => res.status(405).json({ error: "Error in the Connection" }));
+      const client = await connectMongo;
+      const db = client.db("FAMessage");
 
       return NextResponse.json({ msgO :"----" }, { status: 200 })
     } catch (error) {
