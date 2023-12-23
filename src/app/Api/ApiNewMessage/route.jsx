@@ -28,7 +28,7 @@ export async function GET() {
       var query = { NumID: generatedID };
       const ListMessage = await Message.findOne(query);
       //console.log(ListMessage)*/
-      const client = await connectMongo();
+      const client = await connectMongo;
       
       
       //console.log(ListMessage)
