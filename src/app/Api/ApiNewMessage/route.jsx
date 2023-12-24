@@ -2,11 +2,11 @@ import connectMongo from '../../../DB/connectDatabase'
 import { NextResponse } from 'next/server'
 import Message from '../../../model/Message';
 
-  
 
 export async function POST(request, res) {
   try {
-    connectMongo().catch(() => res.status(405).json({ error: "Error in the Connection" }));
+      
+    connectMongo();
     const requestData = await request.json()
     //console.log(request.json())
     const numID = await Message.countDocuments() + 1;
@@ -24,18 +24,13 @@ export async function POST(request, res) {
 export async function GET() {
   try {
     try {  
-     /* const generatedID = Math.floor(Math.random()*(6 - 1)) + 1;
-      var query = { NumID: generatedID };
-      const ListMessage = await Message.findOne(query);
-      //console.log(ListMessage)*/
-      const client = await connectMongo;
+
+      connectMongo();
       const generatedID = Math.floor(Math.random()*(6 - 1)) + 1;
       var query = { NumID: generatedID };
-      //
-       
-      //console.log(ListMessage)
+      const ListMessage = await Message.findOne(query);
   
-      return NextResponse.json({ msgO :client }, { status: 200 })
+      return NextResponse.json({ msgO :ListMessage }, { status: 200 })
     } catch (error) {
       return NextResponse.json({ error: "Error in the Connection **"}, { status: 500 })
     }

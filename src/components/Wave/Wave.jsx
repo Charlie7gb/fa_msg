@@ -72,9 +72,7 @@ export default function Wave() {
                 <div className="row justify-content-center align-items-center g-2">
                     <div className="col-12">
                         <div className={`${animatinFadeinDown} test d-flex justify-content-center align-items-center`}>
-                            <div className={`${DivImage}`}>
-                                <Image src={Img} width={400} height={400} />
-                            </div>
+                            <div className={`${DivImage}`} style={{ width: 400, height: 400, background: `url(${Img})` }}></div>
                             <div className={`${DivText}`}>
                                 <div className='d-flex p-5 justify-content-center align-items-center' style={{
                                     width: 400,
