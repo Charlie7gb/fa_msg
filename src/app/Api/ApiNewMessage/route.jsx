@@ -29,6 +29,7 @@ export async function GET() {
     var query = { NumID: generatedID };
     try {
       const ListMessage = await Message.findOne(query);
+      return NextResponse.json({ msgO: ListMessage }, { status: 200 }) 
     } catch (error) {
       return NextResponse.json({ error: "model is error" }, { status: 500 })
     }
