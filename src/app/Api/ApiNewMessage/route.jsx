@@ -26,10 +26,10 @@ export async function GET() {
      
       await connectMongo();
       const generatedID = Math.floor(Math.random()*(6 - 1)) + 1;
-      var query = { NumID: generatedID };
-      const ListMessage = await Message.findOne(query);
+      /*var query = { NumID: generatedID };
+      const ListMessage = await Message.findOne(query);*/
   
-      return NextResponse.json({ msgO :ListMessage }, { status: 200 })
+      return NextResponse.json({ msgO :generatedID }, { status: 200 })
      
   }
   catch (error) {
