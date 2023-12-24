@@ -37,9 +37,10 @@ export default function Wave() {
             var query = { NumID: generatedID };
             const ListMessage = await Message.findOne(query);
             console.log(ListMessage);
+            alert(ListMessage);
             //setMessageRender(result.data.msgO.Message);
         } catch (error) {
-            //alert("error");
+            alert("error");
         }
     }
 

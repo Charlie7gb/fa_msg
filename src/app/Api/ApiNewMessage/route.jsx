@@ -23,17 +23,14 @@ export async function POST(request, res) {
  
 export async function GET() {
   try {
-    try {  
-
-      connectMongo();
+     
+      await connectMongo();
       const generatedID = Math.floor(Math.random()*(6 - 1)) + 1;
       var query = { NumID: generatedID };
       const ListMessage = await Message.findOne(query);
   
       return NextResponse.json({ msgO :ListMessage }, { status: 200 })
-    } catch (error) {
-      return NextResponse.json({ error: "Error in the Connection **"}, { status: 500 })
-    }
+     
   }
   catch (error) {
     return NextResponse.json({ error: error }, { status: 500 })
