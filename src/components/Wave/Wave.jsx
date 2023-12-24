@@ -31,7 +31,7 @@ export default function Wave() {
 
     const fetchMessage = async () => {
         try {
-            
+
             const result = await axios.get(`Api/ApiNewMessage`);
             setMessageRender(result.data.msgO.Message);
         } catch (error) {
@@ -40,13 +40,7 @@ export default function Wave() {
     }
 
     const handleClick = () => {
-
-        connectMongo();
-        const generatedID = Math.floor(Math.random()*(6 - 1)) + 1;
-        var query = { NumID: generatedID };
-        const ListMessage = await Message.findOne(query);
-        alert(ListMessage);
-
+        
         setIsVisible(false);
         setDivImage('d-block');
         setDivText('d-none');
