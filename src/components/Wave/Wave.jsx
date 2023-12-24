@@ -36,7 +36,7 @@ export default function Wave() {
             const generatedID = Math.floor(Math.random()*(6 - 1)) + 1;
             var query = { NumID: generatedID };
             const ListMessage = await Message.findOne(query);
-            alert(ListMessage);
+            console.log(ListMessage);
             //setMessageRender(result.data.msgO.Message);
         } catch (error) {
             //alert("error");
