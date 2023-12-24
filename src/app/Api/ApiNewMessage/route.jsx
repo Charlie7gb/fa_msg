@@ -5,7 +5,7 @@ import Message from '../../../model/Message';
 
 export async function POST(request, res) {
   try {
-      
+
     connectMongo();
     const requestData = await request.json()
     //console.log(request.json())
@@ -20,17 +20,20 @@ export async function POST(request, res) {
 }
 
 
- 
+
 export async function GET() {
   try {
-     
-      await connectMongo();
-      const generatedID = Math.floor(Math.random()*(6 - 1)) + 1;
-      /*var query = { NumID: generatedID };
-      const ListMessage = await Message.findOne(query);*/
-  
-      return NextResponse.json({ msgO :generatedID }, { status: 200 })
-     
+
+    await connectMongo();
+    const generatedID = Math.floor(Math.random() * (6 - 1)) + 1;
+    var query = { NumID: generatedID };
+    try {
+      const ListMessage = await Message.findOne(query);
+    } catch (error) {
+      return NextResponse.json({ error: "model is error" }, { status: 500 })
+    }
+    return NextResponse.json({ msgO: generatedID }, { status: 200 })
+
   }
   catch (error) {
     return NextResponse.json({ error: error }, { status: 500 })
