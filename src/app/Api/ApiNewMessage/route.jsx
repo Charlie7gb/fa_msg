@@ -19,38 +19,20 @@ export async function POST(request, res) {
   }
 }
 
-
-
 export async function GET() {
   try {
-
     await connectMongo();
-    const generatedID = Math.floor(Math.random() * (6 - 1)) + 1;
+    const generatedID = Math.floor(Math.random() * (10 - 1)) + 1;
     var query = { NumID: generatedID };
     try {
       const ListMessage = await Message.findOne(query);
-      return NextResponse.json({ msgO: ListMessage }, { status: 200 }) 
-    } catch (error) {
+      return NextResponse.json({ msgO: ListMessage }, { status: 200 })
+    }
+    catch (error) {
       return NextResponse.json({ error: "model is error" }, { status: 500 })
     }
-    return NextResponse.json({ msgO: ListMessage }, { status: 200 }) 
   }
   catch (error) {
     return NextResponse.json({ error: error }, { status: 500 })
   }
 }
-
-
-
-/*
-  Delte
-  const posts = await Post.findOneAndDelete({_id: req.query.id})
-
-  Update
-  const post = await Post.findOne({_id: req.query.id})
-        post.title = req.body.title
-        post.details= req.body.details
-        post.user= req.body.user
-        post.age= req.body.age
-        await post.save()
-*/
