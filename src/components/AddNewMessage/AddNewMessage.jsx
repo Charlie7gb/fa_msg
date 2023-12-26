@@ -61,7 +61,8 @@ export default function AddNewMessage() {
             </div>
             <div className={`${DivText}`}>
               <textarea value={message} className={`form-control border-0 position-absolute h-100 w-100 bg-transparent p-5`} onChange={e => SetMessage(e.target.value)}
-                style={{ "top": 0, "left": 0 }}></textarea>
+                style={{ "top": 0, "left": 0, resize:"none", boxShadow:"none" }}>
+              </textarea>
             </div>
           </div>
 
