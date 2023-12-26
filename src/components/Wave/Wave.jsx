@@ -45,7 +45,6 @@ export default function Wave() {
         setDivImage('d-block');
         setDivText('d-none');
 
-
         setTimeout(() => {
             setIsVisible(true);
             setanimatinFadeinDown(css(styles.zoomInDown));

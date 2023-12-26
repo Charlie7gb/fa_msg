@@ -2,10 +2,8 @@ import connectMongo from '../../../DB/connectDatabase'
 import { NextResponse } from 'next/server'
 import Message from '../../../model/Message';
 
-
 export async function POST(request, res) {
   try {
-
     connectMongo();
     const requestData = await request.json()
     //console.log(request.json())
@@ -22,7 +20,9 @@ export async function POST(request, res) {
 export async function GET() {
   try {
     await connectMongo();
-    const generatedID = Math.floor(Math.random() * (10 - 1)) + 1;
+    const MaxId = await Message.countDocuments();
+    console.log(MaxId);
+    const generatedID = Math.floor(Math.random() * (MaxId - 1)) + 1;
     var query = { NumID: generatedID };
     try {
       const ListMessage = await Message.findOne(query);
@@ -34,5 +34,5 @@ export async function GET() {
   }
   catch (error) {
     return NextResponse.json({ error: error }, { status: 500 })
-  }
-}
+  }  
+} 
