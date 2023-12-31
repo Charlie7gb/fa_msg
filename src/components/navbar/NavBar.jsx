@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Clerk from '../Clerk/Clerk';
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js';
+ 
 
 export default function NavBar() {
   return (
